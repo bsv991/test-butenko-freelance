@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1" >
+    <test name="Api" >
+        <classes>
+            <class name="freelance.lsrv.in.api.CommentControllerTest" />
+            <class name="freelance.lsrv.in.api.AuthControllerTest" />
+            <class name="freelance.lsrv.in.api.ImageControllerTest" />
+            <class name="freelance.lsrv.in.api.JobControllerTest" />
+            <class name="freelance.lsrv.in.api.UserControllerTest" />
+        </classes>
+    </test>
+    <test name="ui" >
+        <classes>
+            <class name="freelance.lsrv.in.ui.HomeTest" />
+            <class name="freelance.lsrv.in.ui.AnnouncementTest" />
+            <class name="freelance.lsrv.in.ui.CreateJobTest" />
+            <class name="freelance.lsrv.in.ui.DeleteJobTest" />
+            <class name="freelance.lsrv.in.ui.LoginTest" />
+            <class name="freelance.lsrv.in.ui.ProfileTest" />
+            <class name="freelance.lsrv.in.ui.RegisterTest" />
+        </classes>
+    </test>
+</suite>
