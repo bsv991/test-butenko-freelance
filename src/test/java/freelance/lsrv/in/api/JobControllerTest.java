@@ -2,6 +2,7 @@ package freelance.lsrv.in.api;
 
 import com.google.gson.Gson;
 import entity.Job;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -41,12 +42,24 @@ public class JobControllerTest {
 
     @Test(priority = 30)
     public void testGetJobUser() throws IOException {
-        System.out.println("Response - " + getJobUserJobs());
+        JSONArray responseJson = new JSONArray(getJobUserJobs());
+        if (!responseJson.isEmpty()) {
+            System.out.println("Response - " + getJobUserJobs());
+        } else {
+                System.out.println("Response - пустой");
+        }
+
     }
 
     @Test(priority = 40)
     public void testGetJobAll() throws IOException {
-        System.out.println("Response - " + getJobAll());
+        JSONArray responseJson = new JSONArray(getJobAll());
+        if (!responseJson.isEmpty()) {
+            System.out.println("Response - " + getJobAll());
+        } else {
+            System.out.println("Response - пустой");
+        }
+
     }
 
     @Test(priority = 60)

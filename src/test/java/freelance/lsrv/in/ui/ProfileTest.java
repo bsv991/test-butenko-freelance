@@ -24,7 +24,7 @@ public class ProfileTest extends BaseTest {
         profilePage.setName();
         profilePage.setLastName();
         profilePage.clickUpdateButton();
-        Assert.assertTrue($("mat-toolbar > h3").getText().contains("Sergey Butenko"), "Sergey Butenko");
+        Assert.assertTrue(ProfilePage.getToolbarName("Sergey Butenko"), "Sergey Butenko");
     }
 
     @Test

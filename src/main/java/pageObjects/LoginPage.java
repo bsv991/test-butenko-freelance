@@ -7,12 +7,13 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
     private final SelenideElement inputLogin = $(By.id("mat-input-0"));
     private final SelenideElement inputPassword = $(By.id("mat-input-1"));
     private final SelenideElement loginButton = $("#controls > button");
     private final SelenideElement menuProfile = $("span.mat-button-wrapper > mat-icon");
     private final SelenideElement profileButton = $("#mat-menu-panel-0 > div > button:nth-child(1)");
+    private static final SelenideElement toolbar = $("mat-toolbar > h3");
 
     @Step("Set Login")
     public void setLogin(String login) {
@@ -33,5 +34,10 @@ public class LoginPage {
     public void clickProfileButton () {
         menuProfile.should(Condition.appear).shouldBe(Condition.visible).click();
         profileButton.should(Condition.appear).shouldBe(Condition.visible).click();
+    }
+
+    @Step("Get toolbarName")
+    public static Boolean getToolbarName(String name) {
+        return getText(toolbar).contains(name);
     }
 }

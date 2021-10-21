@@ -5,8 +5,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.HomePage;
 
-import static com.codeborne.selenide.Selenide.$;
-
 public class HomeTest extends BaseTest {
 
     @Test
@@ -14,7 +12,7 @@ public class HomeTest extends BaseTest {
         openAppSelenide("home");
         HomePage homePage = new HomePage();
         homePage.clickRegister();
-        Assert.assertTrue($("div > h2").getText().contains("Register"), "Register");
+        Assert.assertTrue(HomePage.getToolbarName("Register"), "Register");
     }
 
     @Test
@@ -22,6 +20,6 @@ public class HomeTest extends BaseTest {
         openAppSelenide("home");
         HomePage homePage = new HomePage();
         homePage.clickLogin();
-        Assert.assertTrue($("div > h2").getText().contains("Login"), "Login");
+        Assert.assertTrue(HomePage.getToolbarName("Login"), "Login");
     }
 }

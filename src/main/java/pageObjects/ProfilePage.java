@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class ProfilePage {
+public class ProfilePage extends BasePage {
     private final SelenideElement editInfoButton = $$("span.mat-button-wrapper").findBy(text("Edit Info"));
     private final SelenideElement updateButton = $$("span.mat-button-wrapper").findBy(text(" Update "));
     private final SelenideElement addJobButton = $$("span.mat-button-wrapper").findBy(text("Add job"));
@@ -25,6 +25,9 @@ public class ProfilePage {
     private final SelenideElement inputTitle = $(By.id("mat-input-2"));
     private final SelenideElement inputDescription = $(By.id("mat-input-3"));
     private final SelenideElement inputPrice = $(By.id("mat-input-4"));
+    private static final SelenideElement toolbar = $("mat-toolbar > h3");
+    private static final SelenideElement title = $("div > mat-card-title");
+    private static final SelenideElement price = $("mat-card-subtitle.price");
 
     @Step("Click Edit Info Button")
     public void clickEditInfoButton() {
@@ -85,5 +88,20 @@ public class ProfilePage {
     public void clickRemoveJob() {
         deleteJobButton.should(Condition.appear).shouldBe(Condition.visible).click();
         Selenide.confirm();
+    }
+
+    @Step("Get toolbarName")
+    public static Boolean getToolbarName(String name) {
+        return getText(toolbar).contains(name);
+    }
+
+    @Step("Get Title")
+    public static Boolean getTitle(String name) {
+        return getText(title).contains(name);
+    }
+
+    @Step("Get Price")
+    public static Boolean getPrice(String name) {
+        return getText(price).contains(name);
     }
 }

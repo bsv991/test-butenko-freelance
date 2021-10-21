@@ -24,7 +24,7 @@ public class CreateJobTest extends HomeTest {
         profilePage.setDescription("Description200");
         profilePage.setPrice("2000");
         profilePage.clickCreateJobButton();
-        Assert.assertTrue($("div > mat-card-title").getText().contains("Title200"), "Title200");
-        Assert.assertTrue($("mat-card-subtitle.price").getText().contains("Price 2000"), "Price 2000");
+        Assert.assertTrue(ProfilePage.getTitle("Title200"), "Title200");
+        Assert.assertTrue(ProfilePage.getPrice("Price 2000"), "Price 2000");
     }
 }

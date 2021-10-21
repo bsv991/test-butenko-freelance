@@ -24,8 +24,8 @@ public class DeleteJobTest extends BaseTest {
         profilePage.setDescription("Description400");
         profilePage.setPrice("4000");
         profilePage.clickCreateJobButton();
-        Assert.assertTrue($("div > mat-card-title").getText().contains("Title400"), "Title400");
-        Assert.assertTrue($("mat-card-subtitle.price").getText().contains("Price 4000"), "Price 4000");
+        Assert.assertTrue(ProfilePage.getTitle("Title400"), "Title400");
+        Assert.assertTrue(ProfilePage.getPrice("Price 4000"), "Price 4000");
         Assert.assertTrue($("mat-card:nth-child(3) > mat-card-subtitle > mat-card-subtitle:nth-child(1)").getText().contains("Comments: 0"), "Comments: 0");
 
         profilePage.clickRemoveJob();

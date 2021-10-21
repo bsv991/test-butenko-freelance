@@ -19,12 +19,12 @@ public class AnnouncementTest extends BaseTest {
         loginPage.clickLoginButton();
         MainPage mainPage = new MainPage();
         mainPage.findAndClickJob();
-        Assert.assertTrue($("mat-card-subtitle:nth-child(1)").getText().contains("Posted by Sergey Butenko"), "Posted by Sergey Butenko");
-        Assert.assertTrue($("div.mat-card-header-text > mat-card-title").getText().contains("Title200"), "Title200");
-        Assert.assertTrue($("mat-card-subtitle.mat-card-subtitle.price").getText().contains("Price 2000"), "Price 2000");
+        Assert.assertTrue(MainPage.getSubtitle("Posted by Sergey Butenko"), "Posted by Sergey Butenko");
+        Assert.assertTrue(MainPage.getTitle("Title200"), "Title200");
+        Assert.assertTrue(MainPage.getPrice("Price 2000"), "Price 2000");
         JobPage jobPage = new JobPage();
         jobPage.setComment("Comment Butenko");
         jobPage.clickCommentButton();
-        Assert.assertTrue($("div > div.comments > div:nth-child(1) > mat-card > mat-card-content > p").getText().contains("Comment Butenko"), "Comment Butenko");
+        Assert.assertTrue(JobPage.getContent("Comment Butenko"), "Comment Butenko");
     }
 }
